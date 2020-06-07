@@ -2,8 +2,10 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import Cube from "./tools/cube"
 
 Vue.config.productionTip = false;
+Vue.prototype.Cube = Cube;
 
 let intv = setInterval(() => {
   Vue.prototype.qApp = window.qApp;

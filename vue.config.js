@@ -15,8 +15,8 @@ var CONFIG = {
 console.log("全局配置", CONFIG);
 
 module.exports = {
-  outputDir: "C:/Users/Darcy/Documents/Qlik/Sense/Extensions/hk-app", //WYG
-  indexPath: "hk-app.html",
+  outputDir: "C:/Users/ebi/Documents/Qlik/Sense/Extensions/sense-mashup-template", //WYG
+  indexPath: "sense-mashup-template.html",
   publicPath: process.env.NODE_ENV === "production" ? "./" : "./",
   configureWebpack: {
     output: {

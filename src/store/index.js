@@ -9,6 +9,7 @@ Vue.use(Vuex)
 var state = {
   loading: true,
   overview: {
+    row_1_1: null,
     row_1_2: null,
   },
   pageState: {

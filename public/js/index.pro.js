@@ -19,8 +19,9 @@ require(["js/qlik"], function (qlik) {
     });
     //callbacks -- inserted here --
     //open apps -- inserted here --
-    window.qApp = qlik.openApp('MES大屏看板Demo (0422).qvf', config);
-
+    console.log(333333333333);
+    window.qApp = qlik.openApp('8ccd8940-0642-49ec-b52c-4588727ae81f', config);
+    console.log(4444444444444);
     //get objects -- inserted here --
     //create cubes and lists -- inserted here --
 });

@@ -4,34 +4,37 @@
  * @param {*} name String | Array, 如果为Array, Length不能大于3
  * @param {*} params
  */
-function getFormula(name) {
-    var formula = {
-        overview: {
-            row_1_2: {
-                qMeasures: [
-                    [`sum({<DCS工序={'成品X-Ray检测'}>}total QTY)`, '成品X-Ray检测'],
-                    [`sum({<DCS工序={'电压内阻测试OC'}>}total QTY)`, '电压内阻测试OC'],
-                    [`sum({<DCS工序={'FQI'}>}total QTY)`, 'FQI'],
-                    [`sum({<DCS工序={'高温静置'}>}total QTY)`, '高温静置'],
-                    [`sum({<DCS工序={'自动包装'}>}total QTY)`, '自动包装'],
-                    [`sum({<flag={'计划达成_日'},工序 = {'目检'}>}最终良品)/sum({<flag={'计划达成_日'},工序 = {'目检'}>}微计划)*100`, 'Output达成'],
-                    [`sum({<flag={'计划达成_日'},工序 = {'卷绕'}>}最终良品)/sum({<flag={'计划达成_日'},工序 = {'卷绕'}>}微计划)*100`, 'Input达成'],
-                ]
-            },
-        }
-    }
+function getFormula(name, params) {
+  var formula = {
+    overview: {
+      row_1_1: {
+        // qDimensions: ["省"],
+        // qMeasures: [`sum(男)`],
+        qDimensions: ["type"],
+        qMeasures: [`sum(Num)`],
+      },
+      row_1_2: {
+        qMeasures: [
+          // ["sum(男)", "kpi1", "统计人数（男）"],
+          // ["sum(女)", "kpi2", "统计人数（女）"],
+          ["sum(Num)", "kpi2", "总量"],
+        ],
+      },
+    },
+  };
 
-    var formulaStr = {};
-    if (typeof name == 'string') {
-        formulaStr = formula[name];
-    } else if (Array.isArray(name)) {
-        if (name.length == 1) {
-            formulaStr = formula[name][0];
-        } else if (name.length == 2) {
-            formulaStr = formula[name[0]][name[1]];
-        } else if (name.length == 3) {
-            formulaStr = formula[name[0]][name[1]][name[2]];
-        }
+  var formulaStr = {};
+  if (typeof name == "string") {
+    formulaStr = formula[name];
+  } else if (Array.isArray(name)) {
+    if (name.length == 1) {
+      formulaStr = formula[name][0];
+    } else if (name.length == 2) {
+      formulaStr = formula[name[0]][name[1]];
+    } else if (name.length == 3) {
+      formulaStr = formula[name[0]][name[1]][name[2]];
     }
-    return formulaStr;
+  }
+  console.log("formulaStr", formulaStr);
+  return formulaStr;
 }

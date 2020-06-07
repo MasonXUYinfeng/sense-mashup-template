@@ -10,5 +10,7 @@ window.requireLib.config({
 });
 
 window.requireLib(['js/qlik'], function (qlik) {
-    window.qApp = qlik.openApp('c47d74e1-a0ea-44de-819a-66c1e09053df', config);
+    console.log(1111111111);
+    window.qApp = qlik.openApp('8ccd8940-0642-49ec-b52c-4588727ae81f', config);
+    console.log(22222222222);
 });
