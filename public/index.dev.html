@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!--开发时使用的依赖START-->
+    <link rel="stylesheet" href="./js/qlik-style.css" />
+    <script src="./lib/require.js"></script>
+    <!--开发时使用的依赖END-->
+    <script src="./js/index.dev.js"></script>
+    <script src="./formular/formula.js"></script>
+    <!-- 项目关联文件 -->
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+  <script>
+    $(document).ready(() => {
+      (function() {
+        var currClientWidth, fontValue, originWidth;
+        originWidth = 1920;
+        __resize();
+        window.addEventListener("resize", __resize, false);
+
+        function __resize() {
+          currClientWidth = document.body.scrollWidth;
+          fontValue = (currClientWidth / originWidth.toFixed(2)) * 16;
+          $("html").css("font-size", fontValue + "px");
+        }
+      })();
+    });
+  </script>
+</html>

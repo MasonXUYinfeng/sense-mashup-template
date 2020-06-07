@@ -1,0 +1,5 @@
+# { * } 名称一致 项目名即可
+
+1. public/*.qext
+2. vue.config.js outputDir : *
+3. vue.config.js indexPath : *.html
